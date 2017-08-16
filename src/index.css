@@ -1,5 +1,53 @@
+html {
+	box-sizing: border-box;
+}
+
+html > * {
+	box-sizing: inherit;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body > * {
+	padding: inherit;
+	margin: inherit;
+}
+
+.app {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+}
+
+.app__nav {
+	width: 320px;
+	padding: 15px 0;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	margin-right: 15px;
+}
+
+.app__content {
+	padding: 0 15px;
+	height: inherit;
+	flex-grow: 1;
+	overflow-x: auto;
+}
+
+.app__cards {
+	padding: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-nav__btn:nth-last-child(1){
+	margin-top: 60px;
 }

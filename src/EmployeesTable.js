@@ -50,25 +50,25 @@ class EmployeesTableHead extends Component {
 const styles = theme => ({
 	paper: {
 		width: '100%',
-		overflowX: 'auto',
 	},
 });
 
 class EmployeesTable extends Component {
 
-	state = {
-		order: 'desc',
-		orderBy: 'surname',
-		employees: []
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			employees: props.employees
+		}
+	}
 
 	compare = (orderBy, order) => (a, b) =>{
 		let comparison = 0;
 		let valA = a[orderBy].toUpperCase();
 		let valB = b[orderBy].toUpperCase();
 		valA > valB
-			? comparison = 1
-			: comparison = -1;
+			? comparison = -1
+			: comparison = 1;
 		return ((order === 'desc')
 				? (comparison * -1)
 				: comparison
