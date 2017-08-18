@@ -11,8 +11,8 @@ class EmployeesTableHead extends Component {
 		])
 	}
 
-	createSortHandler = property => event => {
-		this.props.onRequestSort(event, property);
+	createSortHandler = column => () => {
+		this.props.onRequestSort(column);
 	};
 
 	render() {

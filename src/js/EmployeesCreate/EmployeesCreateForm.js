@@ -16,14 +16,18 @@ class EmployeesCreateForm extends Component {
 		e.preventDefault();
 		e.persist();
 
+		console.log(this.props.employees.length);
+
 		let newEmployee = {
 			id: this.props.employees.length > 0
-					? (this.props.employees[this.props.employees.length - 1].id + 1)
+					? (this.props.employees.length + 1)
 					: 1,
 			name: e.target.name.value,
 			surname: e.target.surname.value,
 			group: e.target.group.value,
 		};
+
+		console.log(newEmployee.id);
 
 		if (newEmployee.name === '' || newEmployee.surname === '') return alert('Необходимо ввести имя и фамилию сотрудника');
 

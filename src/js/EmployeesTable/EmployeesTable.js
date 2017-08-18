@@ -3,29 +3,21 @@ import Table, {TableBody, TableCell, TableRow,} from 'material-ui/Table';
 import EmployeesTableHead from './EmployeesTableHead';
 
 class EmployeesTable extends Component {
+	state = {
+		order: 'desc'
+	};
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			employees: props.employees
-		}
-	}
-
-	componentWillReceiveProps(nextProps) {
-		this.setState({employees: nextProps.employees});
-	}
-
-	handleRequestSort = (event, property) => {
-		const orderBy = property;
+	handleRequestSort = (column) => {
+		const orderBy = column;
 		let order = 'desc';
 
-		if (this.state.orderBy === property && this.state.order === 'desc') {
+		if (this.state.orderBy === orderBy && this.state.order === 'desc') {
 			order = 'asc';
 		}
 
-		const employees = this.state.employees.sort(this.compare(orderBy, order));
+		this.props.employees.sort(this.compare(orderBy, order));
 
-		this.setState({ employees, order, orderBy });
+		this.setState({ order, orderBy });
 	};
 
 	compare = (orderBy, order) => (a, b) =>{
@@ -42,7 +34,8 @@ class EmployeesTable extends Component {
 	};
 
 	render() {
-		const { employees, order, orderBy } = this.state;
+		const { order, orderBy } = this.state;
+		const { employees } = this.props;
 
 		return (
 			<Table>
