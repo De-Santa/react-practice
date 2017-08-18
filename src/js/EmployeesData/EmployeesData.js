@@ -4,7 +4,7 @@ import EmployeesNav from '../EmployeesNav/EmployeesNav';
 import EmployeesTable from '../EmployeesTable/EmployeesTable';
 import EmployeesCards from '../EmployeesCards/EmployeesCards';
 import EmployeesStartScreen from '../EmployeesStartScreen/EmployeesStartScreen';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 
 class EmployeesData extends Component {
 
@@ -50,6 +50,7 @@ class EmployeesData extends Component {
 							path="/employeesCards"
 							render = {() => <EmployeesCards employees={this.state.employees} />}
 						/>
+						<Redirect from="/" to="/home"/>
 					</div>
 				</div>
 			</Router>
