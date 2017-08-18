@@ -23,20 +23,9 @@ const styles = theme => ({
 
 class EmployeesCards extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			employees: props.employees
-		}
-	}
-
-	componentWillReceiveProps(nextProps) {
-		this.setState({employees: nextProps.employees});
-	}
-
 	render() {
 		const classes = this.props.classes;
-		const {employees} = this.state;
+		const {employees} = this.props;
 
 		return (
 			<div className="app__cards">

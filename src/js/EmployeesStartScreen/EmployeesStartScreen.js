@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 class EmployeesStartScreen extends Component {
 
-	handleRequestClose = () => {
-		this.setState({ open: false });
-	};
-
 	render() {
 		return (
 			<div className="start-screen">

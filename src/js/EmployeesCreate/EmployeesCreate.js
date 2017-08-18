@@ -26,7 +26,11 @@ class EmployeesCreate extends Component {
 						Добавить сотрудника
 					</DialogTitle>
 					<DialogContent>
-						<EmployeesCreateForm employees={this.props.employees} hideModal={this.handleRequestClose}/>
+						<EmployeesCreateForm
+							employees={this.props.employees}
+							onAddEmployee={this.props.onAddEmployee}
+							hideModal={this.handleRequestClose}
+						/>
 					</DialogContent>
 				</Dialog>
 			</div>

@@ -23,12 +23,24 @@ class EmployeesData extends Component {
 			});
 	}
 
+	onAddEmployee = (newEmployee) => {
+		this.setState({ employees: [ ...this.state.employees, newEmployee ] });
+	};
+
+
 	render() {
 		return (
 			<Router>
 				<div className="app">
-					<EmployeesNav employees={this.state.employees}/>
+					<EmployeesNav
+						employees={this.state.employees}
+						onAddEmployee={this.onAddEmployee}
+					/>
 					<div className="app__content">
+						<Route
+							path="/home"
+							render = {() => <EmployeesStartScreen />}
+						/>
 						<Route
 							path="/employeesTable"
 							render = {() => <EmployeesTable employees={this.state.employees} />}
@@ -37,11 +49,6 @@ class EmployeesData extends Component {
 						<Route
 							path="/employeesCards"
 							render = {() => <EmployeesCards employees={this.state.employees} />}
-						/>
-
-						<Route
-							path="/"
-							render = {() => <EmployeesStartScreen />}
 						/>
 					</div>
 				</div>

@@ -7,21 +7,10 @@ class EmployeesNav extends Component {
 
 	static routLinks() {
 		return ([
-			{ routeTo: '/', label: 'Главная', btnColor: 'primary' },
+			{ routeTo: '/home', label: 'Главная', btnColor: 'primary' },
 			{ routeTo: '/employeesTable', label: 'Таблица сотрудников' },
 			{ routeTo: '/employeesCards', label: 'Карточки сотрудников' },
 		])
-	}
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			employees: props.employees
-		}
-	}
-
-	componentWillReceiveProps(nextProps) {
-		this.setState({employees: nextProps.employees});
 	}
 
 	render() {
@@ -35,7 +24,10 @@ class EmployeesNav extends Component {
 					</Button>
 				)
 			})}
-				<EmployeesCreate employees={this.state.employees}/>
+				<EmployeesCreate
+					employees={this.props.employees}
+					onAddEmployee={this.props.onAddEmployee}
+				/>
 			</nav>
 		)
 	}

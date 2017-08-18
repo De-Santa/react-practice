@@ -12,10 +12,6 @@ class EmployeesCreateForm extends Component {
 		])
 	}
 
-	state = {
-		employees: this.props.employees
-	};
-
 	handleSubmit = (e) => {
 		e.preventDefault();
 		e.persist();
@@ -31,7 +27,7 @@ class EmployeesCreateForm extends Component {
 
 		if (newEmployee.name === '' || newEmployee.surname === '') return alert('Необходимо ввести имя и фамилию сотрудника');
 
-		this.state.employees.push(newEmployee);
+		this.props.onAddEmployee(newEmployee);
 		alert('Профиль сотрудника создан');
 		this.props.hideModal();
 	};
