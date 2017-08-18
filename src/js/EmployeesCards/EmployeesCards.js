@@ -6,13 +6,9 @@ import Typography from 'material-ui/Typography';
 
 const styles = theme => ({
 	card: {
-		width: 320,
-		marginBottom: 15
-	},
-	bullet: {
-		display: 'inline-block',
-		margin: '0 2px',
-		transform: 'scale(0.8)',
+		width: 250,
+		marginBottom: 15,
+		flexShrink: 0
 	},
 	title: {
 		marginBottom: 16,
@@ -26,6 +22,7 @@ const styles = theme => ({
 });
 
 class EmployeesCards extends Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {
