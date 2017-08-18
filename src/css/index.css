@@ -77,11 +77,20 @@ body > * {
 	width: 3600px;
 	height: 100%;
 	background-image: url(../img/main.jpg);
-	animation: bg-move 25s .5s ease-in-out both;
+	animation: bg-move 25s .5s linear both;
 }
 @keyframes bg-move {
- 100% {
-  transform: translateX(-1950px)
+	25% {
+		transform: translate3d(-400px, 0, 0);
+	}
+	50% {
+		transform: translate3d(-800px, 0, 0);
+	}
+	75% {
+		transform: translate3d(-1200px, 0, 0);
+	}
+	100% {
+	 transform: translate3d(-1600px, 0, 0);
  }
 }
 
@@ -118,12 +127,6 @@ body > * {
 	.start-screen__bg {
 		width: 2000px;
 		background-position: 100% 25%;
-	}
-
-	@keyframes bg-move {
-		100% {
-			transform: translateX(-1550px)
-		}
 	}
 
 	.main-nav__btn:nth-last-of-type(1) {
